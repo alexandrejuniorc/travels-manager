@@ -1,11 +1,9 @@
 import { FastifyInstance } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
-import { prisma } from "../lib/prisma";
 
-import { getMailClient } from "../lib/mail";
 import nodemailer from "nodemailer";
-import { dayjs } from "../lib/dayjs";
+import { dayjs, getMailClient, prisma } from "@/lib";
 
 export async function createTrip(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().post(
