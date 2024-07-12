@@ -20,6 +20,7 @@ import {
   getTripDetails,
   updateTrip,
 } from "./routes";
+import { env, errorHandler } from "./utils";
 
 const app = fastify();
 
@@ -29,6 +30,8 @@ app.register(cors, {
 
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
+
+app.setErrorHandler(errorHandler);
 
 app.register(createTrip);
 app.register(confirmTrip);
@@ -43,6 +46,6 @@ app.register(updateTrip);
 app.register(getTripDetails);
 app.register(getParticipant);
 
-app.listen({ port: 3333 }).then(() => {
+app.listen({ port: env.PORT }).then(() => {
   console.log("Server running! 🚀");
 });

@@ -1,3 +1,4 @@
+import { ClientError } from "@/errors";
 import { dayjs, prisma } from "@/lib";
 import { FastifyInstance } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
@@ -22,7 +23,7 @@ export async function getLinks(app: FastifyInstance) {
       });
 
       if (!trip) {
-        throw new Error("Trip not found");
+        throw new ClientError("Trip not found");
       }
 
       return { links: trip.links };
