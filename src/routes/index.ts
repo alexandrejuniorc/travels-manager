@@ -5,3 +5,8 @@ export * from "./create-activity";
 export * from "./get-activities";
 export * from "./create-link";
 export * from "./get-links";
+export * from "./create-invite";
+export * from "./get-participant";
+export * from "./get-participants";
+export * from "./get-trip-details";
+export * from "./update-trip";
